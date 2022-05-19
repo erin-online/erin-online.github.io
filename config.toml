@@ -1,4 +1,4 @@
-baseURL = 'http://example.org/'
+baseURL = 'https://erin-online.github.io'
 languageCode = 'en-us'
 title = 'im just vibing. im chilling and vibing on the internet'
 theme = "terminal"
