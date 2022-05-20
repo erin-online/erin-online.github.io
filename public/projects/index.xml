@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects on im just vibing. im chilling and vibing on the internet</title>
+    <link>http://example.org/projects/</link>
+    <description>Recent content in Projects on im just vibing. im chilling and vibing on the internet</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 19 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://example.org/projects/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Spiral</title>
+      <link>http://example.org/projects/spiral/</link>
+      <pubDate>Thu, 19 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/projects/spiral/</guid>
+      <description>Project Details In this project, I created an algorithm to play weighted rock-paper-scissors. &amp;ldquo;Weighted&amp;rdquo; here means that depending on which choice you win with, you get different rewards. For example with weights [3, 2, 1], you get 3 points for winning with rock, 2 points for winning with paper, and 1 point for winning with scissors.
+I wanted the algorithm to converge toward optimal (least exploitable) play. In unweighted rock-paper-scissors, this looks like a 1/3 chance to play each choice.</description>
+      <content>&lt;h2 id=&#34;project-details&#34;&gt;Project Details&lt;/h2&gt;
+&lt;p&gt;In this project, I created an algorithm to play weighted &lt;a href=&#34;https://en.wikipedia.org/wiki/Rock_paper_scissors&#34;&gt;rock-paper-scissors&lt;/a&gt;. &amp;ldquo;Weighted&amp;rdquo; here means that depending on which choice you win with, you get different rewards. For example with weights [3, 2, 1], you get 3 points for winning with rock, 2 points for winning with paper, and 1 point for winning with scissors.&lt;/p&gt;
+&lt;p&gt;I wanted the algorithm to converge toward &lt;strong&gt;optimal&lt;/strong&gt; (least exploitable) play. In unweighted rock-paper-scissors, this looks like a 1/3 chance to play each choice. When you add in weights, it looks like the following:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;img0_weighted_rps_explanation.png&#34; alt=&#34;image&#34;&gt;&lt;/p&gt;
+&lt;p&gt;The easiest way to do this is to have the algorithm play itself 3 times to determine the weights, then set itself to the optimal strategy instantly. I thought this was a little cheap and wouldn&amp;rsquo;t make me learn much, so I looked at what else I could come up with.&lt;/p&gt;
+&lt;p&gt;I didn&amp;rsquo;t want to use a neural network for this because it looked like an overcomplicated solution to a simple problem. I wanted to work with something I could understand.&lt;/p&gt;
+&lt;h2 id=&#34;initial-algorithm&#34;&gt;Initial Algorithm&lt;/h2&gt;
+&lt;p&gt;The algorithm I worked with was extremely simple, and worked similarly to the &lt;a href=&#34;https://en.wikipedia.org/wiki/Matchbox_Educable_Noughts_and_Crosses_Engine&#34;&gt;MENACE&lt;/a&gt;. It stored three values, one for each choice, and increased or decreased them whenever it played against itself.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;img1_initial_algo_explanation.png&#34; alt=&#34;image&#34;&gt;&lt;/p&gt;
+&lt;p&gt;The bulk of my tests consisted of starting all the algorithm&amp;rsquo;s values as equal, such as (100, 100, 100), then giving it an asymmetrical weight set such as [2, 1, 1] and seeing if it could find its way to the optimal strategy.&lt;/p&gt;
+&lt;p&gt;I expected this to be fairly straightforward, but ran into confounding results. Rather than converge, each value continued to oscillate similar to a sine wave. Additionally, over time the oscillations became broader.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;img2_initial_behavior.png&#34; alt=&#34;image&#34;&gt;&lt;/p&gt;
+&lt;p&gt;This eventually led to &lt;em&gt;extinction&lt;/em&gt;, which is where one option hits 0 and so is never played again, leaving the option it beats to dominate.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;img3_extinction_example.png&#34; alt=&#34;image&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;smooth-rps&#34;&gt;Smooth RPS&lt;/h2&gt;
+&lt;p&gt;In order to figure out what was going on here, I decided to analyze the sine-like function that the algorithm was producing and see if I could figure out its equation. This was a terrible idea, but it sounded good at the time.&lt;/p&gt;
+&lt;p&gt;Anyway, the first thing I needed to do was get rid of the randomness involved in option selection, so I came up with Smooth RPS. Basically, rather than simulating an actual game of rock-paper-scissors, Smooth RPS predicts how much the algorithm will change, on average, and makes that change. Here&amp;rsquo;s an example:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;img4_smooth_rps.png&#34; alt=&#34;image&#34;&gt;&lt;/p&gt;
+&lt;p&gt;This also helpfully eliminated extinction, because the lower a choice&amp;rsquo;s value got, the less likely it was to be played, meaning the value didn&amp;rsquo;t decrease by as much.&lt;/p&gt;
+&lt;h2 id=&#34;mathematical-function-hell&#34;&gt;Mathematical Function Hell&lt;/h2&gt;
+&lt;p&gt;Here was the function Smooth RPS gave me for each choice:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;img5_f_demonstration.png&#34; alt=&#34;image&#34;&gt;&lt;/p&gt;
+&lt;p&gt;This is a little bit different from a sine wave:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;img6_f_vs_sine.png&#34; alt=&#34;image&#34;&gt;&lt;/p&gt;
+&lt;p&gt;By scouring Wikipedia, I found the &lt;a href=&#34;https://en.wikipedia.org/wiki/Clausen_function&#34;&gt;Clausen function&lt;/a&gt;, which is a really cool function involving summation of sines. There are a lot of ways to mess with it, and I spent several hours on it but was ultimately unable to have it line up with the line my algorithm produced.&lt;/p&gt;
+&lt;p&gt;At this point, I was feeling pretty discouraged. My adventure through weird math stuff was fun, but I had no idea how to actually make progress in the project. But it wasn&amp;rsquo;t over yet.&lt;/p&gt;
+&lt;h2 id=&#34;spiral&#34;&gt;Spiral&lt;/h2&gt;
+&lt;p&gt;My next idea was representing the data on a &lt;a href=&#34;https://en.wikipedia.org/wiki/Barycentric_coordinate_system&#34;&gt;barycentric graph&lt;/a&gt;. Up until this point, I&amp;rsquo;d been convinced that I couldn&amp;rsquo;t model all three variables at once without using a 3D graph. Putting them on a triangle changed that.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;img7_barycentric.png&#34; alt=&#34;image&#34;&gt;&lt;/p&gt;
+&lt;p&gt;When I modeled the adaptation of the algorithm on it, I was face-to-face with the spiral for the first time:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;img8_spiral_out.png&#34; alt=&#34;image&#34;&gt;&lt;/p&gt;
+&lt;p&gt;(Note: The white square in the middle is the optimal strategy.)&lt;/p&gt;
+&lt;p&gt;Suddenly everything became clear.&lt;/p&gt;
+&lt;p&gt;The algorithm trended towards a circular pattern because it was trying to win against itself more. Optimal strategies are of little use when they can never give you any advantage. If your friend is always playing rock against you, then you should start playing paper more frequently, even though that loses to someone who plays scissors.&lt;/p&gt;
+&lt;p&gt;Why, then, did it spiral out of control? This was due to Smooth RPS not being smooth enough. By changing the algorithm a bit at a time through iterations, it essentially tried to simulate a circle using straight lines, which resulted in it growing larger over time:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;img9_tangent.png&#34; alt=&#34;image&#34;&gt;&lt;/p&gt;
+&lt;p&gt;The solution was also clear. The spiral was constantly moving &lt;em&gt;away&lt;/em&gt; from the optimal strategy, but I could simply re-engineer it to turn it &lt;em&gt;inward&lt;/em&gt; instead.&lt;/p&gt;
+&lt;p&gt;What I did for this was take every algorithm change, convert it into barycentric coordinates, rotate it counterclockwise by 90 degrees, then convert it back into value changes.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;img10_spiral_algo.png&#34; alt=&#34;image&#34;&gt;&lt;/p&gt;
+&lt;p&gt;This worked exceedingly well. You can see the algorithm instantly seeking out the optimal strategy.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;img11_spiral.png&#34; alt=&#34;image&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;thoughts-and-takeaways&#34;&gt;Thoughts and Takeaways&lt;/h2&gt;
+&lt;p&gt;I&amp;rsquo;m really happy with how this project turned out. The solution was very elegant and gave me some neat things to take away.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Graphs with randomly generated colors are cool.&lt;/li&gt;
+&lt;li&gt;Ways to visualize many variables at once can be really useful, although barycentric only works for 3 variables in 2D space.&lt;/li&gt;
+&lt;li&gt;Machine learning algorithms should have some model of &lt;em&gt;themselves&lt;/em&gt;. This was implemented in the solution here when the coordinates are converted.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;plans&#34;&gt;Plans&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;I&amp;rsquo;ll probably keep hosting this site on GitHub for now. I plan to mostly directly link it through various online avenues and don&amp;rsquo;t want to go through the time and money of setting up a domain right now.&lt;/li&gt;
+&lt;li&gt;Obviously I&amp;rsquo;ll work on a more complicated game than rock-paper-scissors next time. I was thinking of doing something with chess, because it fits a few criteria quite nicely. It&amp;rsquo;s simple and easy to simulate, it has a lot of depth, and I have a personal interest in making sure the current best chess engine, Stockfish, perishes in spectacular fashion for telling me all my awesome and funny moves are &amp;ldquo;inaccurate&amp;rdquo; and &amp;ldquo;blunders&amp;rdquo;.&lt;/li&gt;
+&lt;li&gt;I don&amp;rsquo;t want to use Python anymore. I know it&amp;rsquo;s often used for machine learning, but it just does not work for me. My code by the end was an absolute mess and debugging took a couple hours. I know this is partly me just being a bad programmer, but when I&amp;rsquo;ve used languages like Java in the past I feel like they do a better job forcing me to get some groundwork in place. I&amp;rsquo;ll go language shopping which will probably slow me down a bit, but this is fine, I&amp;rsquo;m in no rush.&lt;/li&gt;
+&lt;li&gt;On that note, I&amp;rsquo;ve been meaning to try operating systems besides Windows. I&amp;rsquo;ve been on Windows machines for my whole life simply because it&amp;rsquo;s the status quo and there&amp;rsquo;s nothing new for me to wrap my head around. I think it&amp;rsquo;s time for me to actually make an effort to improve my experience using my computer. (Recommendations are welcome.)&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    </item>
+    
+  </channel>
+</rss>
