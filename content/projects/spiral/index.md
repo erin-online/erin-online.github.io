@@ -91,7 +91,7 @@ This worked exceedingly well. You can see the algorithm instantly seeking out th
 
 I'm really happy with how this project turned out. The solution was very elegant and gave me some neat things to take away.
 
-* Graphs with randomly generated colors are cool.
+* The concept of "breaking down" games is interesting. Fighting games for example are often considered as rock-paper-scissors + frame data and stuff, so if you have all the frame data figured out, then you can simplify the game down to rock-paper-scissors which we have here.
 * Ways to visualize many variables at once can be really useful, although barycentric only works for 3 variables in 2D space.
 * Machine learning algorithms should have some model of *themselves*. This was implemented in the solution here when the coordinates are converted.
 
