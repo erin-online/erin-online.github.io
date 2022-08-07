@@ -1,1 +1,51 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>im just vibing. im chilling and vibing on the internet</title><link>https://erin-online.github.io/writings/</link><description>Recent content on im just vibing. im chilling and vibing on the internet</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="https://erin-online.github.io/writings/index.xml" rel="self" type="application/rss+xml"/></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>im just vibing. im chilling and vibing on the internet</title><link>https://erin-online.github.io/writings/</link><description>Recent content on im just vibing. im chilling and vibing on the internet</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 03 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://erin-online.github.io/writings/index.xml" rel="self" type="application/rss+xml"/><item><title>Know Your Enemy</title><link>https://erin-online.github.io/writings/know_your_enemy/</link><pubDate>Wed, 03 Aug 2022 00:00:00 +0000</pubDate><guid>https://erin-online.github.io/writings/know_your_enemy/</guid><description>Mini Progress Update Before I get into the post for today, I want to share how things have been going since the conclusion of my first project:
+I&amp;rsquo;ve been working with Common Lisp and it&amp;rsquo;s been good to me so far. When I said I wanted a language that encouraged me to get groundwork in place, my only frame of reference was object-oriented stuff like Java. I still think OOP is neat, but Lisp&amp;rsquo;s interactive REPL is great as well to help me work through bugs.</description><content>&lt;h2 id="mini-progress-update">Mini Progress Update&lt;/h2>
+&lt;p>Before I get into the post for today, I want to share how things have been going since the conclusion of my first project:&lt;/p>
+&lt;ul>
+&lt;li>I&amp;rsquo;ve been working with Common Lisp and it&amp;rsquo;s been good to me so far. When I said I wanted a language that encouraged me to get groundwork in place, my only frame of reference was object-oriented stuff like Java. I still think OOP is neat, but Lisp&amp;rsquo;s interactive REPL is great as well to help me work through bugs. The syntax is also really easy to understand. My code is actually readable this time so I&amp;rsquo;ll be linking the GitHub repository in the project writeup.&lt;/li>
+&lt;li>I&amp;rsquo;m implementing a basic neural network which is almost done. (This is not the main part of the project, which will come later.) Motivation has dried up a bit recently, I have to take care of myself better. No major obstacles other than getting this version of Emacs to stop autocompleting my parentheses and maybe implementing some basic graphics so I can see what&amp;rsquo;s going on, like the graphs in the last project.&lt;/li>
+&lt;li>A couple friends recommended Arch Linux to me so I installed that, but it&amp;rsquo;s just been a barrage of googling error message after error message to move forward so far. (Currently I have it installed, but need to install a network package so I can connect to the Internet and install other packages.) I&amp;rsquo;m gonna stay on Windows for now and will maybe press onward in the future, idk.&lt;/li>
+&lt;/ul>
+&lt;h2 id="problems-with-the-chess-community">Problems with the Chess Community&lt;/h2>
+&lt;p>Most people I know are familiar with the disdain I have for my local chess scene. The reason for this is that most of the people in it feel uninterested in using chess to make friends or get to know people better. It ends up in an intensely casual game with no passion involved, so the unique playstyle and vision of the game both players have ultimately receives no attention. This isolation is especially hurtful in my case; as a trans woman I almost never get gendered correctly at the chess club. This is in stark contrast to other competitive communities I notice.&lt;/p>
+&lt;p>This lack of interest in using chess to understand things seems to extend into the world of computer chess. Engines such as Stockfish, Leela Chess Zero (Lc0), and Komodo are unimaginably strong compared to even the best humans. It seems completely ridiculous that no new understandings can be drawn from this mastery of this incredibly complex game, but that&amp;rsquo;s exactly what has happened. Two things have changed at the human level in computer chess: grandmasters have gotten better at opening preparation, and random Twitch chat spectators have suddenly become geniuses now that they can see the computer evaluation of important games in real time.&lt;/p>
+&lt;p>A more seasoned community member might disagree with me and provide other examples, but my point is that there is still much more to be done.&lt;/p>
+&lt;h2 id="generalization">Generalization&lt;/h2>
+&lt;p>Consider the following game:&lt;/p>
+&lt;ul>
+&lt;li>There are two players, Player A and Player B.&lt;/li>
+&lt;li>Player A can choose to press a red button or a green button.&lt;/li>
+&lt;li>If Player A presses the red button, Player B must play through a level of Crash Bandicoot without losing a life.&lt;/li>
+&lt;li>If Player A presses the green button, Player B must play through a level of Touhou without losing a life.&lt;/li>
+&lt;li>If Player B succeeds, they win. If they fail, Player A wins.&lt;/li>
+&lt;/ul>
+&lt;p>Now, if we want to optimize this game using neural networks, it doesn&amp;rsquo;t make a whole lot of sense to use one network for the whole thing. Don&amp;rsquo;t get me wrong, generalized networks are really cool, but making one isn&amp;rsquo;t as simple as telling a network to do two unrelated things. There are two main things to consider:&lt;/p>
+&lt;ul>
+&lt;li>The network must be reasonably powerful. (Larger number of nodes, good amount of training)&lt;/li>
+&lt;li>There must be some sort of &amp;ldquo;thread&amp;rdquo; connecting the different tasks.&lt;/li>
+&lt;/ul>
+&lt;p>For a counterexample, consider the following two chess positions:&lt;/p>
+&lt;p>&lt;img src="img1_chess_endgame.png" alt="A chess endgame">&lt;/p>
+&lt;p>&lt;img src="img2_chess_midgame.png" alt="A chess midgame">&lt;/p>
+&lt;p>These two positions require drastically different ways of thinking in order to solve them, yet a single good neural network (or human player) can easily find the winning sequence in each. This is because of &amp;ldquo;threads&amp;rdquo; binding all of chess: The board is always 8x8, the pieces will always move the same way, the win/lose/draw conditions are the same. These threads, borders that define what is possible in the game, are the reason why strong neural networks can exist for &amp;ldquo;generalized chess&amp;rdquo;, or any chess position.&lt;/p>
+&lt;h2 id="neural-network-math-operations">Neural Network Math Operations&lt;/h2>
+&lt;p>This was just a fun idea I had. I don&amp;rsquo;t know how useful it is in practice.&lt;/p>
+&lt;p>Let&amp;rsquo;s say you have a network trained on recognizing a specific pattern. Given this network, can you use a specific algorithm to produce a network that recognizes the &lt;em>same pattern&lt;/em>, with less nodes (smaller layers, less powerful)? How about more nodes?&lt;/p>
+&lt;p>What other operations can you do with a network? Inverting it is funny, but I&amp;rsquo;m sure that other possible operations exist.&lt;/p>
+&lt;p>&lt;img src="img3_network_operations.png" alt="Image showing different hypothetical ways to modify neural networks">&lt;/p>
+&lt;h2 id="know-your-enemy">Know Your Enemy&lt;/h2>
+&lt;p>Generalization is one thing, but there&amp;rsquo;s more to a player than how good they are. Each person (and non-person) has their own unique fighting style based on the way they understand the game. Playing against them involves analyzing their strengths and weaknesses to come up with the best strategy. Do you push the red button, or the green button?&lt;/p>
+&lt;p>The concept of being &amp;ldquo;good&amp;rdquo; at a competitive game is all relative to an extent, because the trials you put your opponents through are judged from a human perspective. For example, computers react to everything much faster than humans, so in fighting games they&amp;rsquo;re impervious to aggressive strategies, even though those same strategies perform well against humans. &lt;a href="https://www.youtube.com/watch?v=o1bfQWy8o08">(Example)&lt;/a> Thus, an aggressive fighting game player in a world of bots is suddenly really bad.&lt;/p>
+&lt;p>Different playstyles are an incredibly interesting topic, and I find it odd that they aren&amp;rsquo;t brought up often when it comes to neural networks and other artificial players (besides passing observations like &amp;ldquo;wow the computer likes to play like this&amp;rdquo;). I&amp;rsquo;m interested in looking further into some questions regarding them:&lt;/p>
+&lt;ul>
+&lt;li>Can playstyles be represented in terms of data? Would this data look like values or like a logic system?&lt;/li>
+&lt;li>If so, how can said data be made comprehensible to humans? What can neural networks do with it?&lt;/li>
+&lt;li>What can be interpreted as a &amp;lsquo;playstyle&amp;rsquo;? Images? Sentences? Entities?&lt;/li>
+&lt;li>Can we do fun pseudoscience and reinvent the MBTI personality test to statistically prove that I&amp;rsquo;m the only cool player in a world of crayon-eating lame losers?&lt;/li>
+&lt;/ul>
+&lt;h2 id="looking-ahead">Looking Ahead&lt;/h2>
+&lt;ul>
+&lt;li>I will be going forward because I don&amp;rsquo;t really know where else I can go.&lt;/li>
+&lt;li>For Spiral I had a relatively coherent goal pretty early on, but for this project I don&amp;rsquo;t feel comfortable enough in the space of neural networks to set a clear stopping point. So I&amp;rsquo;m hoping a goal will materialize as I gain more experience and try out some of my funny ideas.&lt;/li>
+&lt;li>I don&amp;rsquo;t set schedules cause things just kinda happen and if I feel bad about myself all of this comes crashing down. Being irresponsible is self-care, actually.&lt;/li>
+&lt;/ul></content></item></channel></rss>
