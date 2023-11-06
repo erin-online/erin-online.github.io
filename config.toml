@@ -9,3 +9,23 @@ theme = "terminal"
   readingTime = true
   Toc = true
   Subtitle = 'le corner of the internet indie web site etc etc'
+
+[languages]
+  [languages.en]
+    languageName = "English"
+    title = "Terminal"
+    subtitle = "A simple, retro theme for Hugo"
+    owner = ""
+    keywords = ""
+    copyright = ""
+    menuMore = "Show more"
+    readMore = "Read more"
+    readOtherPosts = "Read other posts"
+    newerPosts = "Newer posts"
+    olderPosts = "Older posts"
+    missingContentMessage = "Page not found..."
+    missingBackButtonLabel = "Back to home page"
+
+    [languages.en.params.logo]
+      logoText = "elite ai research club we have 30 millioin gpus dont tell eliezer yudkowsky"
+      logoHomeLink = "/"
