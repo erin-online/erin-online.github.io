@@ -18,7 +18,7 @@ Peter Norvig's *Paradigms in Artificial Intelligence Programming* provides an il
 
 ![Diagram of deductive reasoning used to solve problem](1_gps.png)
 
-Using a pre-defined graph like this, the GPS can look ahead to find paths that satisfy the given objective. The algorithms it uses to do so were around well before the GPS's conception, but it was the first system to use them in a more general context. (Interestingly, this runs parallel to the generalization of [grid cells and place cells](~/writings/atb_and_the_minecraft_problem/#atb_on_the_human_brain) in human neuroscience.)
+Using a pre-defined graph like this, the GPS can look ahead to find paths that satisfy the given objective. The algorithms it uses to do so were around well before the GPS's conception, but it was the first system to use them in a more general context. (Interestingly, this runs parallel to the generalization of [grid cells and place cells](https://erin-online.github.io/writings/atb_and_the_minecraft_problem/#atb_on_the_human_brain) in human neuroscience.)
 
 The General Problem Solver was initially thought to be the last innovation AI ever needed, but it quickly became clear that the system was not nearly as powerful as initially expected. Like most other examples of old AI, GPS now has a reputation of being rigidly dependent on people feeding in laborious manually-curated data, only to provide an answer that said people could likely already find on their own. The system cannot handle uncertainty (every variable must be known beforehand), and it doesn't scale well--both of which are death sentences for the majority of real-world applications.
 
