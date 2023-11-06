@@ -8,3 +8,4 @@ theme = "terminal"
   themeColor = "pink"
   readingTime = true
   Toc = true
+  Subtitle = 'le corner of the internet indie web site etc etc'
