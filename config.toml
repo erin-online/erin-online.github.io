@@ -27,5 +27,5 @@ theme = "terminal"
     missingBackButtonLabel = "Back to home page"
 
     [languages.en.params.logo]
-      logoText = "elite ai research club we have 30 millioin gpus dont tell eliezer yudkowsky"
+      logoText = "erin's ai research corner"
       logoHomeLink = "/"
