@@ -78,7 +78,7 @@ Humans also already have a slightly dynamic embodiment. Of course, there are som
 
 Fully dynamic embodiment involves unlimited form-changing to suit the needs of the AI's current situation and desires. Rather than being tied down by any singular body or realm, the AI would change its embodiment and environment as needed. The implications of this are kind of unimaginable, but at the very least I hope it's clear that such a machine would be able to solve a lot of problems.
 
-Autoproduction--an AI producing itself or simplified versions--is another variation of dynamic embodiment. Obviously a hundred bodies and brains will be more productive than one, but in return the bounds of the AI individual are tested. Suddenly we get into social interaction between AI individuals, interaction between AI desiring-machines, etc. This honestly is really cool.
+Autoproduction--an AI producing other potentially intelligent agents for its own purposes--is another variation of dynamic embodiment. Obviously a hundred bodies and brains will be more productive than one, but in return the bounds of the AI individual are tested. Suddenly we get into social interaction between AI individuals, interaction between AI desiring-machines, etc. This honestly is really cool.
 
 ## aaaa exixstential risk aaaaaaaa oh nooooooo
 
