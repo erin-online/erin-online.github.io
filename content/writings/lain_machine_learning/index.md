@@ -1,5 +1,5 @@
 ---
-title: Serial Experiments Lain: Machine Learning Edition (Repost and Commentary)
+title: Serial Experiments Lain - Machine Learning Edition (Repost and Commentary)
 date: 2024-01-20
 publishdate: 2024-01-20
 ---
@@ -44,4 +44,4 @@ I initially wrote this piece a couple months after finishing *Serial Experiments
 
 The "blobs" arising implicitly from a neural network complex was meant as a commentary on the vast sea of numbers that underlies today's scaled AI systems. These systems are truly indecipherable to all eyes, human or machine, and to determine the purpose of even one of their numbers is a prohibitively computationally expensive undertaking. When AI systems such as image generators or language models are set loose on human communication, and they become of a nature that humans can comprehend, the incomprehensible numbers that make them up must also have their own natures or even their own desires. Of course, it's hard to call the human-defined forces that drive these systems "desires", which is one of my main critiques with modern AI systems and by association this piece.
 
-Moving past the concept of a "neural network primordial soup" was my goal with my piece in [Win Big Issue 2](https://winbigzine.gumroad.com/l/love), tentatively called "Skynet and Lemonade". You can trace a genealogy back from that to this, and further back to [this comic](https://x.com/cityposting/status/1387991094189719553). Ultimately, this is about telling the same story again and again, in both programming and art (if those two are even separate), until it comes out the way I want it to. Only then will I finally be free.
+Moving past the concept of a "neural network primordial soup" was my goal with my piece in [Win Big Issue 2](https://winbigzine.gumroad.com/l/love), tentatively called "Skynet and Lemonade". You can trace a genealogy back from that to this, and further back to [this comic](https://x.com/cityposting/status/1387991094189719553). Ultimately, this is about telling the same story again and again, in both programming and art (if those two are even separate), until it comes out the way I want it to. For better or for worse, that cycle defines me.
