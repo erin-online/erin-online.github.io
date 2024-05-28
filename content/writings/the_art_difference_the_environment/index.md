@@ -27,11 +27,17 @@ Although the function "create a new piece of art, given x surroundings" is possi
 
 ## Difference
 
-![A blank image](01_blank.png) ![A drawing of a curvy line](02_line.png) ![A drawing of a curvy line surrounded by dots](03_line_dots.png)
+![A blank image](01_blank.png)
+
+![A drawing of a curvy line](02_line.png)
+
+![A drawing of a curvy line surrounded by dots](03_line_dots.png)
 
 These images are different from each other, but how different? We can try to use objective measures such as going pixel-by-pixel, but that very quickly runs into trouble when we consider a different type of example:
 
-![A collection of random pixels](04_chaos1.png) ![A different collection of random pixels](05_chaos2.png)
+![A collection of random pixels](04_chaos1.png)
+
+![A different collection of random pixels](05_chaos2.png)
 
 Under most human interpretations these two images are very similar, but their raw data is completely different.
 
