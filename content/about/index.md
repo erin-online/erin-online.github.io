@@ -2,7 +2,7 @@
 Toc = false
 +++
 
-hello, i'm erin! i've been around since 2001, 2014, or 2021, depending on who you ask. you can find me on [twitter](https://twitter.com/cityposting), [pleroma](https://social.xenofem.me/erin), and discord (cityposting).
+hello, i'm erin! i've been around since 2001, 2014, or 2021, depending on who you ask. you can find me on [twitter](https://twitter.com/cityposting) and matrix (ask).
 
 i've come up with various reasons as to why i'm doing these projects over the years. a while ago i wrote a draft on how i thought ai research needed to be liberated from academia and placed into the hands of the common people (which is kinda the goal of this blog), but i really didn't like how it turned out so i haven't published it yet. maybe it will live here in the future.
 
