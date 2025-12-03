@@ -32,7 +32,7 @@ This project basically involves using functions other than ReLU, and adding new 
 
 I was looking for a programming language to use for this project because I didn't want to use Python again. I decided to give Common Lisp a try because several people on the fediverse were always talking about it, and it ended up being an incredibly rewarding experience. Truly cannot recommend this language enough.
 
-The language structure of Common Lisp lends itself particularly well to recursion, which is basically mandatory if you want to program calculus. This is because you can nest functions within each other as many times as you want; for example e^e^e^e^...^x or sin(sin(sin(...sin(x)...))). Recursion basically entails continually processing the same expression until you finally peel away all the layers, and my get-derivative function ended up working like that:
+The language structure of Common Lisp lends itself particularly well to recursion, which is basically mandatory if you want to program calculus. This is because you can nest functions within each other as many times as you want; for example e^e^e^e^...^x or sin(sin(...sin(x)...)). Recursion basically entails continually processing the same expression until you finally peel away all the layers, and my get-derivative function ended up working like that:
 
 ![Demonstration of the get-derivative function](img03_getderivative.png)
 
